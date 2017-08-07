@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/SpaceShip.png" type="Texture" id=1]
+
+[node name="Main" type="Node2D"]
+
+[node name="spr_spaceShip" type="Sprite" parent="."]
+
+position = Vector2( 512, 384 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+
