@@ -1,12 +1,13 @@
 config_version=3
 
-display=false
+config_version=null
+display=null
 
 [application]
 
 config/name="Planetoids"
 run/main_scene="res://scenes/Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/SpaceShip.png"
 
 [display]
 
