@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/SpaceShip.png" type="Texture" id=2]
 [ext_resource path="res://assets/PropulsionFire.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -19,6 +20,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="spr_spaceShip" type="Sprite" parent="kbdy_spaceShip"]
 
+editor/display_folded = true
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Pause", "Transform" ]
@@ -28,6 +30,13 @@ _sections_unfolded = [ "Pause", "Transform" ]
 position = Vector2( 0.0324764, 8.87083 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="spr_head" type="Sprite" parent="kbdy_spaceShip"]
+
+position = Vector2( 0, -21 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="cnfd_quitGame" type="ConfirmationDialog" parent="."]

@@ -5,6 +5,7 @@ const speed = 4
 onready var spaceShip = get_node("kbdy_spaceShip")
 onready var propulsionFire = get_node("kbdy_spaceShip/spr_spaceShip/spr_propulsionFire")
 onready var quitGame = get_node("cnfd_quitGame")
+onready var head = spaceShip.get_node("spr_head")
 var direction = Vector2(0,0)
 
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	print(head.get_global_position())
 	propulsionFire.hide()
 	
 	if Input.is_action_just_pressed("ui_quit"):
@@ -20,21 +22,17 @@ func _fixed_process(delta):
 	
 	if Input.is_action_pressed("ui_left"):
 		spaceShip.rotate(-0.05)
-		print("LEFT");
 	if Input.is_action_pressed("ui_right"):
 		spaceShip.rotate(0.05)
-		print("RIGHT");
 	
 	if Input.is_action_pressed("ui_up"):
-		direction += Vector2(0,-1)
+		direction += Vector2(head.get_global_position().x-512,-1)
 		propulsionFire.show()
 	if Input.is_action_pressed("ui_down"):
-		direction += Vector2(0,1)
+		direction += Vector2(head.get_global_position().x-512,1)
 		
 	spaceShip.move(direction * delta * speed)
 
-	#if quitGame.get_cancel().is_pressed():
-	#	get_tree().set_pause(false)
 	var cancel = quitGame.get_cancel()
 	cancel.connect("button_down", self, "resume_game")
 

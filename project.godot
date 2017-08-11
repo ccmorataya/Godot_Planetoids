@@ -26,3 +26,4 @@ quality/filters/anisotropic_filter_level=3.999
 quality/shadows/filter_mode=0
 environment/default_clear_color=Color( 0, 0.137255, 0.188235, 1 )
 environment/default_environment="res://default_env.tres"
+viewport/default_clear_color=Color( 0.0955811, 0.122498, 0.159302, 1 )
