@@ -32,6 +32,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="cnfd_quitGame" type="ConfirmationDialog" parent="."]
 
+pause_mode = 2
 visible = false
 margin_left = 470.0
 margin_top = 372.0
@@ -44,8 +45,10 @@ window_title = "Quit Game?"
 resizable = false
 dialog_text = "Are you sure?"
 dialog_hide_on_ok = true
-_sections_unfolded = [ "Dialog", "Rect" ]
+_sections_unfolded = [ "Dialog", "Pause", "Rect" ]
 
 [connection signal="confirmed" from="cnfd_quitGame" to="." method="_on_cnfd_quitGame_confirmed"]
+
+[connection signal="custom_action" from="cnfd_quitGame" to="." method="_on_cnfd_quitGame_cancel"]
 
 

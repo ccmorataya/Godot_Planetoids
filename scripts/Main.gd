@@ -15,6 +15,7 @@ func _fixed_process(delta):
 	propulsionFire.hide()
 	
 	if Input.is_action_just_pressed("ui_quit"):
+		get_tree().set_pause(true)
 		quitGame.show()
 	
 	if Input.is_action_pressed("ui_left"):
@@ -32,5 +33,14 @@ func _fixed_process(delta):
 		
 	spaceShip.move(direction * delta * speed)
 
+	#if quitGame.get_cancel().is_pressed():
+	#	get_tree().set_pause(false)
+	var cancel = quitGame.get_cancel()
+	cancel.connect("button_down", self, "resume_game")
+
+func resume_game():
+	get_tree().set_pause(false)
+
 func _on_cnfd_quitGame_confirmed():
 	get_tree().quit()
+	pass
