@@ -30,4 +30,21 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="cnfd_quitGame" type="ConfirmationDialog" parent="."]
+
+visible = false
+margin_left = 470.0
+margin_top = 372.0
+margin_right = 594.0
+margin_bottom = 430.0
+rect_clip_content = false
+mouse_filter = 0
+popup_exclusive = false
+window_title = "Please Confirm..."
+resizable = false
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="confirmed" from="cnfd_quitGame" to="." method="_on_cnfd_quitGame_confirmed"]
+
 

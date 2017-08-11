@@ -4,6 +4,7 @@ const speed = 4
 #onready var spaceShip = get_node("spr_spaceShip")
 onready var spaceShip = get_node("kbdy_spaceShip")
 onready var propulsionFire = get_node("kbdy_spaceShip/spr_spaceShip/spr_propulsionFire")
+onready var quitGame = get_node("cnfd_quitGame")
 var direction = Vector2(0,0)
 
 func _ready():
@@ -12,6 +13,9 @@ func _ready():
 
 func _fixed_process(delta):
 	propulsionFire.hide()
+	
+	if Input.is_action_just_pressed("ui_quit"):
+		quitGame.show()
 	
 	if Input.is_action_pressed("ui_left"):
 		spaceShip.rotate(-0.05)
@@ -27,3 +31,6 @@ func _fixed_process(delta):
 		direction += Vector2(0,1)
 		
 	spaceShip.move(direction * delta * speed)
+
+func _on_cnfd_quitGame_confirmed():
+	get_tree().quit()
