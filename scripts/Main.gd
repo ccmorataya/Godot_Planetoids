@@ -9,7 +9,7 @@ onready var head = spaceShip.get_node("spr_head")
 var direction = Vector2(0,0)
 
 func _ready():
-	randomize(true)
+	randomize()
 	for i in range(25):
 		var x = floor(rand_range(1, 1025))
 		var y = floor(rand_range(1, 769))
