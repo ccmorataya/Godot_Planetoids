@@ -18,10 +18,10 @@ func _ready():
 		add_child(starNode)
 		var positionVector = Vector2(x,y)
 		starNode.set_position(positionVector)
-		#starNode.position(x,y)
-
 	print("started")
 	set_fixed_process(true)
+	var cancel = quitGame.get_cancel()
+	cancel.connect("button_down", self, "resume_game")
 
 func _fixed_process(delta):
 	print(head.get_global_position())
@@ -43,9 +43,6 @@ func _fixed_process(delta):
 		direction += Vector2(head.get_global_position().x-512,1)
 		
 	spaceShip.move(direction * delta * speed)
-
-	var cancel = quitGame.get_cancel()
-	cancel.connect("button_down", self, "resume_game")
 
 func resume_game():
 	get_tree().set_pause(false)

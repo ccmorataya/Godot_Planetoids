@@ -62,6 +62,4 @@ _sections_unfolded = [ "Dialog", "Pause", "Rect" ]
 
 [connection signal="confirmed" from="cnfd_quitGame" to="." method="_on_cnfd_quitGame_confirmed"]
 
-[connection signal="custom_action" from="cnfd_quitGame" to="." method="_on_cnfd_quitGame_cancel"]
-
 
