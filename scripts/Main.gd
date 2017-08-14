@@ -9,6 +9,17 @@ onready var head = spaceShip.get_node("spr_head")
 var direction = Vector2(0,0)
 
 func _ready():
+	randomize(true)
+	for i in range(25):
+		var x = floor(rand_range(1, 1025))
+		var y = floor(rand_range(1, 769))
+		var starScene = preload("res://scenes/Star.tscn")
+		var starNode = starScene.instance()
+		add_child(starNode)
+		var positionVector = Vector2(x,y)
+		starNode.set_position(positionVector)
+		#starNode.position(x,y)
+
 	print("started")
 	set_fixed_process(true)
 
